@@ -1,0 +1,477 @@
+# MinGW 32 Debug
+
+std::vector<int>::push_back(i) 0.381132s
+Urho3D::PODVector<int>::Push(i) 0.309208s
+Urho3D::Vector<int>::Push(i) 0.591924s
+
+std::vector<PODStruct>::push_back(PODStruct()) 0.707153s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.613939s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.916172s
+
+std::vector<SLStruct>::push_back(SLStruct()) 1.47434s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.66073s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.978266s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 1.27916s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 1.17092s
+
+std::vector<int>::[i] 0.837831s
+std::vector<int>::iterator 1.87667s
+Urho3D::PODVector<int>::[i] 1.31818s
+Urho3D::PODVector<int>::iterator 1.1437s
+Urho3D::Vector<int>::[i] 1.31916s
+Urho3D::Vector<int>::iterator 1.14162s
+
+std::vector<PODStruct>::[i] 0.916639s
+std::vector<PODStruct>::iterator 1.80998s
+Urho3D::PODVector<PODStruct>::[i] 1.37785s
+Urho3D::PODVector<PODStruct>::iterator 1.1125s
+Urho3D::Vector<PODStruct>::[i] 1.38656s
+Urho3D::Vector<PODStruct>::iterator 1.10989s
+
+std::vector<SLStruct>::[i] 0.914711s
+std::vector<SLStruct>::iterator 1.79315s
+Urho3D::PODVector<SLStruct>::[i] 1.37796s
+Urho3D::PODVector<SLStruct>::iterator 1.11448s
+Urho3D::Vector<SLStruct>::[i] 1.37641s
+Urho3D::Vector<SLStruct>::iterator 1.10863s
+
+std::vector<NonPodStruct>::[i] 1.15239s
+std::vector<NonPodStruct>::iterator 2.07343s
+Urho3D::Vector<NonPodStruct>::[i] 1.63739s
+Urho3D::Vector<NonPodStruct>::iterator 1.38189s
+
+std::vector<int>::copy 0.456747s
+Urho3D::PODVector<int>::copy 0.460428s
+Urho3D::Vector<int>::copy 2.38362s
+
+std::vector<PODStruct>::copy 1.34599s
+Urho3D::PODVector<PODStruct>::copy 1.34017s
+Urho3D::Vector<PODStruct>::copy 3.34976s
+
+std::vector<SLStruct>::copy 4.37365s
+Urho3D::PODVector<SLStruct>::copy 1.34243s
+Urho3D::Vector<SLStruct>::copy 3.32631s
+
+std::vector<NonPodStruct>::copy 5.80786s
+Urho3D::Vector<NonPodStruct>::copy 4.17376s
+
+===============================================================================
+
+# MinGW 32 Release
+
+std::vector<int>::push_back(i) 0.132436s
+Urho3D::PODVector<int>::Push(i) 0.157224s
+Urho3D::Vector<int>::Push(i) 0.181155s
+
+std::vector<PODStruct>::push_back(PODStruct()) 0.358532s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.479048s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.506007s
+
+std::vector<SLStruct>::push_back(SLStruct()) 0.373972s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.479674s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.506554s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 0.374529s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 0.511316s
+
+std::vector<int>::[i] 0.0750502s
+std::vector<int>::iterator 0.113267s
+Urho3D::PODVector<int>::[i] 0.0753059s
+Urho3D::PODVector<int>::iterator 0.075152s
+Urho3D::Vector<int>::[i] 0.0750015s
+Urho3D::Vector<int>::iterator 0.0765707s
+
+std::vector<PODStruct>::[i] 0.158272s
+std::vector<PODStruct>::iterator 0.157612s
+Urho3D::PODVector<PODStruct>::[i] 0.163065s
+Urho3D::PODVector<PODStruct>::iterator 0.158144s
+Urho3D::Vector<PODStruct>::[i] 0.162776s
+Urho3D::Vector<PODStruct>::iterator 0.156176s
+
+std::vector<SLStruct>::[i] 0.156938s
+std::vector<SLStruct>::iterator 0.157388s
+Urho3D::PODVector<SLStruct>::[i] 0.163562s
+Urho3D::PODVector<SLStruct>::iterator 0.157764s
+Urho3D::Vector<SLStruct>::[i] 0.162313s
+Urho3D::Vector<SLStruct>::iterator 0.157628s
+
+std::vector<NonPodStruct>::[i] 0.1564s
+std::vector<NonPodStruct>::iterator 0.15809s
+Urho3D::Vector<NonPodStruct>::[i] 0.162576s
+Urho3D::Vector<NonPodStruct>::iterator 0.158544s
+
+std::vector<int>::copy 0.455393s
+Urho3D::PODVector<int>::copy 0.458958s
+Urho3D::Vector<int>::copy 0.47755s
+
+std::vector<PODStruct>::copy 1.34441s
+Urho3D::PODVector<PODStruct>::copy 1.35059s
+Urho3D::Vector<PODStruct>::copy 1.43385s
+
+std::vector<SLStruct>::copy 1.43505s
+Urho3D::PODVector<SLStruct>::copy 1.33602s
+Urho3D::Vector<SLStruct>::copy 1.42993s
+
+std::vector<NonPodStruct>::copy 1.45018s
+Urho3D::Vector<NonPodStruct>::copy 1.44743s
+
+===============================================================================
+
+# MinGW 64 Debug
+
+std::vector<int>::push_back(i) 0.281622s
+Urho3D::PODVector<int>::Push(i) 0.241294s
+Urho3D::Vector<int>::Push(i) 0.509311s
+
+std::vector<PODStruct>::push_back(PODStruct()) 0.570547s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.536882s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.833733s
+
+std::vector<SLStruct>::push_back(SLStruct()) 1.26366s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.701369s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.997193s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 1.12038s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 1.07645s
+
+std::vector<int>::[i] 0.717384s
+std::vector<int>::iterator 1.50152s
+Urho3D::PODVector<int>::[i] 0.899366s
+Urho3D::PODVector<int>::iterator 1.07048s
+Urho3D::Vector<int>::[i] 0.927362s
+Urho3D::Vector<int>::iterator 1.07199s
+
+std::vector<PODStruct>::[i] 0.743127s
+std::vector<PODStruct>::iterator 1.48427s
+Urho3D::PODVector<PODStruct>::[i] 0.891475s
+Urho3D::PODVector<PODStruct>::iterator 1.05531s
+Urho3D::Vector<PODStruct>::[i] 0.886769s
+Urho3D::Vector<PODStruct>::iterator 1.0424s
+
+std::vector<SLStruct>::[i] 0.73199s
+std::vector<SLStruct>::iterator 1.50829s
+Urho3D::PODVector<SLStruct>::[i] 0.952236s
+Urho3D::PODVector<SLStruct>::iterator 1.04096s
+Urho3D::Vector<SLStruct>::[i] 0.921949s
+Urho3D::Vector<SLStruct>::iterator 1.04305s
+
+std::vector<NonPodStruct>::[i] 0.992201s
+std::vector<NonPodStruct>::iterator 1.85105s
+Urho3D::Vector<NonPodStruct>::[i] 1.17246s
+Urho3D::Vector<NonPodStruct>::iterator 1.33277s
+
+std::vector<int>::copy 0.402763s
+Urho3D::PODVector<int>::copy 0.409673s
+Urho3D::Vector<int>::copy 1.98546s
+
+std::vector<PODStruct>::copy 1.21446s
+Urho3D::PODVector<PODStruct>::copy 1.22074s
+Urho3D::Vector<PODStruct>::copy 2.77108s
+
+std::vector<SLStruct>::copy 3.84832s
+Urho3D::PODVector<SLStruct>::copy 1.62011s
+Urho3D::Vector<SLStruct>::copy 3.09491s
+
+std::vector<NonPodStruct>::copy 4.72486s
+Urho3D::Vector<NonPodStruct>::copy 3.35183s
+
+===============================================================================
+
+# MinGW 64 Release
+
+std::vector<int>::push_back(i) 0.121593s
+Urho3D::PODVector<int>::Push(i) 0.144037s
+Urho3D::Vector<int>::Push(i) 0.158888s
+
+std::vector<PODStruct>::push_back(PODStruct()) 0.334185s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.431049s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.481141s
+
+std::vector<SLStruct>::push_back(SLStruct()) 0.534398s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.574637s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.619583s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 0.355645s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 0.463203s
+
+std::vector<int>::[i] 0.0512395s
+std::vector<int>::iterator 0.0516538s
+Urho3D::PODVector<int>::[i] 0.0532595s
+Urho3D::PODVector<int>::iterator 0.0522184s
+Urho3D::Vector<int>::[i] 0.0511019s
+Urho3D::Vector<int>::iterator 0.0516829s
+
+std::vector<PODStruct>::[i] 0.157165s
+std::vector<PODStruct>::iterator 0.156947s
+Urho3D::PODVector<PODStruct>::[i] 0.163831s
+Urho3D::PODVector<PODStruct>::iterator 0.157183s
+Urho3D::Vector<PODStruct>::[i] 0.163173s
+Urho3D::Vector<PODStruct>::iterator 0.156415s
+
+std::vector<SLStruct>::[i] 0.205618s
+std::vector<SLStruct>::iterator 0.206159s
+Urho3D::PODVector<SLStruct>::[i] 0.216072s
+Urho3D::PODVector<SLStruct>::iterator 0.20506s
+Urho3D::Vector<SLStruct>::[i] 0.214463s
+Urho3D::Vector<SLStruct>::iterator 0.207136s
+
+std::vector<NonPodStruct>::[i] 0.157008s
+std::vector<NonPodStruct>::iterator 0.157576s
+Urho3D::Vector<NonPodStruct>::[i] 0.163227s
+Urho3D::Vector<NonPodStruct>::iterator 0.157414s
+
+std::vector<int>::copy 0.396827s
+Urho3D::PODVector<int>::copy 0.408038s
+Urho3D::Vector<int>::copy 0.483565s
+
+std::vector<PODStruct>::copy 1.20215s
+Urho3D::PODVector<PODStruct>::copy 1.22124s
+Urho3D::Vector<PODStruct>::copy 1.42556s
+
+std::vector<SLStruct>::copy 1.82547s
+Urho3D::PODVector<SLStruct>::copy 1.62201s
+Urho3D::Vector<SLStruct>::copy 1.86905s
+
+std::vector<NonPodStruct>::copy 1.35779s
+Urho3D::Vector<NonPodStruct>::copy 1.43889s
+
+===============================================================================
+
+Visual Studio 32 Debug
+
+std::vector<int>::push_back(i) 1.47765s
+Urho3D::PODVector<int>::Push(i) 0.383968s
+Urho3D::Vector<int>::Push(i) 0.681852s
+
+std::vector<PODStruct>::push_back(PODStruct()) 1.96233s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.808927s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 1.10915s
+
+std::vector<SLStruct>::push_back(SLStruct()) 2.79242s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.848547s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 1.1663s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 3.54519s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 1.60006s
+
+std::vector<int>::[i] 1.07894s
+std::vector<int>::iterator 0.43446s
+Urho3D::PODVector<int>::[i] 1.54272s
+Urho3D::PODVector<int>::iterator 1.14071s
+Urho3D::Vector<int>::[i] 1.28164s
+Urho3D::Vector<int>::iterator 1.152s
+
+std::vector<PODStruct>::[i] 1.68981s
+std::vector<PODStruct>::iterator 0.453145s
+Urho3D::PODVector<PODStruct>::[i] 1.34562s
+Urho3D::PODVector<PODStruct>::iterator 1.15679s
+Urho3D::Vector<PODStruct>::[i] 1.26125s
+Urho3D::Vector<PODStruct>::iterator 1.11831s
+
+std::vector<SLStruct>::[i] 1.74676s
+std::vector<SLStruct>::iterator 0.459063s
+Urho3D::PODVector<SLStruct>::[i] 1.3289s
+Urho3D::PODVector<SLStruct>::iterator 1.11589s
+Urho3D::Vector<SLStruct>::[i] 1.3498s
+Urho3D::Vector<SLStruct>::iterator 1.10162s
+
+std::vector<NonPodStruct>::[i] 1.86795s
+std::vector<NonPodStruct>::iterator 0.589763s
+Urho3D::Vector<NonPodStruct>::[i] 1.70366s
+Urho3D::Vector<NonPodStruct>::iterator 1.46334s
+
+std::vector<int>::copy 0.59378s
+Urho3D::PODVector<int>::copy 0.599788s
+Urho3D::Vector<int>::copy 2.75395s
+
+std::vector<PODStruct>::copy 1.82442s
+Urho3D::PODVector<PODStruct>::copy 1.79242s
+Urho3D::Vector<PODStruct>::copy 3.77789s
+
+std::vector<SLStruct>::copy 4.58539s
+Urho3D::PODVector<SLStruct>::copy 1.8055s
+Urho3D::Vector<SLStruct>::copy 3.842s
+
+std::vector<NonPodStruct>::copy 7.22838s
+Urho3D::Vector<NonPodStruct>::copy 4.97743s
+
+===============================================================================
+
+Visual Studio 32 Release
+
+std::vector<int>::push_back(i) 0.174133s
+Urho3D::PODVector<int>::Push(i) 0.174921s
+Urho3D::Vector<int>::Push(i) 0.176196s
+
+std::vector<PODStruct>::push_back(PODStruct()) 0.504358s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.513284s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.504222s
+
+std::vector<SLStruct>::push_back(SLStruct()) 0.511537s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.501956s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.568661s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 0.499166s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 0.514179s
+
+std::vector<int>::[i] 0.0756654s
+std::vector<int>::iterator 0.0542004s
+Urho3D::PODVector<int>::[i] 0.0524697s
+Urho3D::PODVector<int>::iterator 0.0521934s
+Urho3D::Vector<int>::[i] 0.0526825s
+Urho3D::Vector<int>::iterator 0.0525696s
+
+std::vector<PODStruct>::[i] 0.163998s
+std::vector<PODStruct>::iterator 0.157003s
+Urho3D::PODVector<PODStruct>::[i] 0.161666s
+Urho3D::PODVector<PODStruct>::iterator 0.155988s
+Urho3D::Vector<PODStruct>::[i] 0.161485s
+Urho3D::Vector<PODStruct>::iterator 0.158617s
+
+std::vector<SLStruct>::[i] 0.163644s
+std::vector<SLStruct>::iterator 0.156607s
+Urho3D::PODVector<SLStruct>::[i] 0.16173s
+Urho3D::PODVector<SLStruct>::iterator 0.156678s
+Urho3D::Vector<SLStruct>::[i] 0.161548s
+Urho3D::Vector<SLStruct>::iterator 0.160614s
+
+std::vector<NonPodStruct>::[i] 0.164102s
+std::vector<NonPodStruct>::iterator 0.157818s
+Urho3D::Vector<NonPodStruct>::[i] 0.161136s
+Urho3D::Vector<NonPodStruct>::iterator 0.156708s
+
+std::vector<int>::copy 0.472961s
+Urho3D::PODVector<int>::copy 0.473188s
+Urho3D::Vector<int>::copy 0.478225s
+
+std::vector<PODStruct>::copy 1.42255s
+Urho3D::PODVector<PODStruct>::copy 1.41619s
+Urho3D::Vector<PODStruct>::copy 1.41666s
+
+std::vector<SLStruct>::copy 1.41322s
+Urho3D::PODVector<SLStruct>::copy 1.41689s
+Urho3D::Vector<SLStruct>::copy 1.40722s
+
+std::vector<NonPodStruct>::copy 1.43111s
+Urho3D::Vector<NonPodStruct>::copy 1.42912s
+
+===============================================================================
+
+Visual Studio 64 Debug
+
+std::vector<int>::push_back(i) 1.28728s
+Urho3D::PODVector<int>::Push(i) 0.309853s
+Urho3D::Vector<int>::Push(i) 0.596208s
+
+std::vector<PODStruct>::push_back(PODStruct()) 2.04279s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 1.11862s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 1.88971s
+
+std::vector<SLStruct>::push_back(SLStruct()) 3.19196s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 1.19063s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 1.91348s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 2.81334s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 1.34412s
+
+std::vector<int>::[i] 0.982516s
+std::vector<int>::iterator 0.388055s
+Urho3D::PODVector<int>::[i] 1.03764s
+Urho3D::PODVector<int>::iterator 1.14651s
+Urho3D::Vector<int>::[i] 1.00058s
+Urho3D::Vector<int>::iterator 1.25608s
+
+std::vector<PODStruct>::[i] 3.97437s
+std::vector<PODStruct>::iterator 0.433156s
+Urho3D::PODVector<PODStruct>::[i] 0.953016s
+Urho3D::PODVector<PODStruct>::iterator 1.09356s
+Urho3D::Vector<PODStruct>::[i] 0.886442s
+Urho3D::Vector<PODStruct>::iterator 1.04214s
+
+std::vector<SLStruct>::[i] 0.98559s
+std::vector<SLStruct>::iterator 0.419722s
+Urho3D::PODVector<SLStruct>::[i] 0.956682s
+Urho3D::PODVector<SLStruct>::iterator 1.14536s
+Urho3D::Vector<SLStruct>::[i] 0.941624s
+Urho3D::Vector<SLStruct>::iterator 1.14598s
+
+std::vector<NonPodStruct>::[i] 4.05971s
+std::vector<NonPodStruct>::iterator 0.450901s
+Urho3D::Vector<NonPodStruct>::[i] 1.42723s
+Urho3D::Vector<NonPodStruct>::iterator 1.42167s
+
+std::vector<int>::copy 0.576842s
+Urho3D::PODVector<int>::copy 0.575957s
+Urho3D::Vector<int>::copy 2.29072s
+
+std::vector<PODStruct>::copy 1.79192s
+Urho3D::PODVector<PODStruct>::copy 1.72916s
+Urho3D::Vector<PODStruct>::copy 5.01027s
+
+std::vector<SLStruct>::copy 6.20094s
+Urho3D::PODVector<SLStruct>::copy 2.32024s
+Urho3D::Vector<SLStruct>::copy 6.0038s
+
+std::vector<NonPodStruct>::copy 5.35236s
+Urho3D::Vector<NonPodStruct>::copy 4.04224s
+
+===============================================================================
+
+Visual Studio 64 Release
+
+std::vector<int>::push_back(i) 0.152991s
+Urho3D::PODVector<int>::Push(i) 0.149536s
+Urho3D::Vector<int>::Push(i) 0.181591s
+
+std::vector<PODStruct>::push_back(PODStruct()) 0.449825s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.453766s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.507633s
+
+std::vector<SLStruct>::push_back(SLStruct()) 0.647174s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.658034s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.709605s
+
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 0.500404s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 0.519713s
+
+std::vector<int>::[i] 0.104608s
+std::vector<int>::iterator 0.0528499s
+Urho3D::PODVector<int>::[i] 0.0529182s
+Urho3D::PODVector<int>::iterator 0.0525402s
+Urho3D::Vector<int>::[i] 0.0521829s
+Urho3D::Vector<int>::iterator 0.0513053s
+
+std::vector<PODStruct>::[i] 0.165867s
+std::vector<PODStruct>::iterator 0.157889s
+Urho3D::PODVector<PODStruct>::[i] 0.16228s
+Urho3D::PODVector<PODStruct>::iterator 0.156911s
+Urho3D::Vector<PODStruct>::[i] 0.162443s
+Urho3D::Vector<PODStruct>::iterator 0.158739s
+
+std::vector<SLStruct>::[i] 0.216775s
+std::vector<SLStruct>::iterator 0.20922s
+Urho3D::PODVector<SLStruct>::[i] 0.21541s
+Urho3D::PODVector<SLStruct>::iterator 0.206386s
+Urho3D::Vector<SLStruct>::[i] 0.216769s
+Urho3D::Vector<SLStruct>::iterator 0.206085s
+
+std::vector<NonPodStruct>::[i] 0.169056s
+std::vector<NonPodStruct>::iterator 0.157155s
+Urho3D::Vector<NonPodStruct>::[i] 0.16471s
+Urho3D::Vector<NonPodStruct>::iterator 0.159299s
+
+std::vector<int>::copy 0.39426s
+Urho3D::PODVector<int>::copy 0.396488s
+Urho3D::Vector<int>::copy 0.489276s
+
+std::vector<PODStruct>::copy 1.19792s
+Urho3D::PODVector<PODStruct>::copy 1.20693s
+Urho3D::Vector<PODStruct>::copy 1.43176s
+
+std::vector<SLStruct>::copy 1.84521s
+Urho3D::PODVector<SLStruct>::copy 1.61256s
+Urho3D::Vector<SLStruct>::copy 1.87479s
+
+std::vector<NonPodStruct>::copy 1.44238s
+Urho3D::Vector<NonPodStruct>::copy 1.45528s
