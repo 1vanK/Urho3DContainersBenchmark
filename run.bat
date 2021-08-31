@@ -1,0 +1,10 @@
+build_vector_mingw32_debug\vector_benchmark.exe >vector_mingw32_debug.txt
+build_vector_mingw32_release\vector_benchmark.exe >vector_mingw32_release.txt
+build_vector_mingw64_debug\vector_benchmark.exe >vector_mingw64_debug.txt
+build_vector_mingw64_release\vector_benchmark.exe >vector_mingw64_release.txt
+build_vector_vs32\Debug\vector_benchmark.exe >vector_vs32_debug.txt
+build_vector_vs32\Release\vector_benchmark.exe >vector_vs32_release.txt
+build_vector_vs64\Debug\vector_benchmark.exe >vector_vs64_debug.txt
+build_vector_vs64\Release\vector_benchmark.exe >vector_vs64_release.txt
+
+pause

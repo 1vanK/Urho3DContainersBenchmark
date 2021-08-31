@@ -3,10 +3,23 @@
 #include <limits>
 #include <vector>
 #include "Urho3D/Container/Vector.h"
+#include <EASTL/vector.h>
 
 using namespace std;
 using namespace std::chrono;
 using namespace Urho3D;
+
+// EASTL требует это
+// https://github.com/electronicarts/EASTL/blob/master/doc/CMake/EASTL_Project_Integration.md
+void* operator new[](size_t size, size_t alignment, size_t alignmentOffset, const char* name, int flags, unsigned debugFlags, const char* file, int line)
+{
+    return new uint8_t[size];
+}
+
+void* operator new[](size_t size, const char* name, int flags, unsigned debugFlags, const char* file, int line)
+{
+    return new uint8_t[size];
+}
 
 struct PODStruct
 {
@@ -140,6 +153,28 @@ int main()
 
     cout << "Urho3D::Vector<int>::Push(i) " << min_time << "s" << endl;
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        eastl::vector<int> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(i);
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.size();
+    }
+
+    cout << "eastl::vector<int>::::push_back(i) " << min_time << "s" << endl;
+    
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== PUSH PODStruct ====================================================
@@ -201,6 +236,28 @@ int main()
     }
 
     cout << "Urho3D::Vector<PODStruct>::Push(PODStruct()) " << min_time << "s" << endl;
+
+    // --------------------------------------------------------------------------------------------------------------
+    
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        eastl::vector<PODStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(PODStruct());
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.size();
+    }
+
+    cout << "eastl::vector<PODStruct>::push_back(PODStruct()) " << min_time << "s" << endl;
+    
+    // --------------------------------------------------------------------------------------------------------------
 
     cout << endl;
 
@@ -264,6 +321,28 @@ int main()
 
     cout << "Urho3D::Vector<SLStruct>::Push(SLStruct()) " << min_time << "s" << endl;
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        eastl::vector<SLStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(SLStruct());
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.size();
+    }
+
+    cout << "eastl::vector<SLStruct>::push_back(SLStruct()) " << min_time << "s" << endl;
+    
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== PUSH NonPodStruct ====================================================
@@ -305,6 +384,28 @@ int main()
     }
 
     cout << "Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) " << min_time << "s" << endl;
+
+    // --------------------------------------------------------------------------------------------------------------
+    
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        eastl::vector<NonPodStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(NonPodStruct());
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.size();
+    }
+
+    cout << "eastl::vector<NonPodStruct>::push_back(NonPodStruct()) " << min_time << "s" << endl;
+    
+    // --------------------------------------------------------------------------------------------------------------
 
     cout << endl;
 
@@ -422,6 +523,46 @@ int main()
         cout << "Urho3D::Vector<int>::iterator " << min_time << "s" << endl;
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<int> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(i);
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (int i = 0; i < vec.size(); ++i)
+                ignore_this += vec[i];
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<int>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (int val : vec)
+                ignore_this += val;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<int>::iterator " << min_time << "s" << endl;
+    }
+    
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== vector<PODStruct>[i] ====================================================
@@ -537,6 +678,46 @@ int main()
 
         cout << "Urho3D::Vector<PODStruct>::iterator " << min_time << "s" << endl;
     }
+
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<PODStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(PODStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (int i = 0; i < vec.size(); ++i)
+                ignore_this += vec[i].a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<PODStruct>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (PODStruct& val : vec)
+                ignore_this += val.a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<PODStruct>::iterator " << min_time << "s" << endl;
+    }
+    
+    // --------------------------------------------------------------------------------------------------------------
 
     cout << endl;
 
@@ -654,6 +835,46 @@ int main()
         cout << "Urho3D::Vector<SLStruct>::iterator " << min_time << "s" << endl;
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<SLStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(SLStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (int i = 0; i < vec.size(); ++i)
+                ignore_this += vec[i].a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<SLStruct>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (SLStruct& val : vec)
+                ignore_this += val.a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<SLStruct>::iterator " << min_time << "s" << endl;
+    }
+    
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== vector<NonPodStruct>[i] ====================================================
@@ -732,6 +953,46 @@ int main()
         cout << "Urho3D::Vector<NonPodStruct>::iterator " << min_time << "s" << endl;
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<NonPodStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(NonPodStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (int i = 0; i < vec.size(); ++i)
+                ignore_this += vec[i].a();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<NonPodStruct>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (NonPodStruct& val : vec)
+                ignore_this += val.a();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<NonPodStruct>::iterator " << min_time << "s" << endl;
+    }
+    
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== COPY vector<int> ====================================================
@@ -802,6 +1063,31 @@ int main()
 
         cout << "Urho3D::Vector<int>::copy " << min_time << "s" << endl;
     }
+
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<int> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(i);
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            eastl::vector<int> copy = vec;
+            ignore_this += copy.size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<int>::copy " << min_time << "s" << endl;
+    }
+    
+    // --------------------------------------------------------------------------------------------------------------
 
     cout << endl;
 
@@ -874,6 +1160,31 @@ int main()
         cout << "Urho3D::Vector<PODStruct>::copy " << min_time << "s" << endl;
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<PODStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(PODStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            eastl::vector<PODStruct> copy = vec;
+            ignore_this += copy.size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<PODStruct>::copy " << min_time << "s" << endl;
+    }
+    
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== COPY vector<SLStruct> ====================================================
@@ -945,6 +1256,31 @@ int main()
         cout << "Urho3D::Vector<SLStruct>::copy " << min_time << "s" << endl;
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<SLStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(SLStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            eastl::vector<SLStruct> copy = vec;
+            ignore_this += copy.size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<SLStruct>::copy " << min_time << "s" << endl;
+    }
+    
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== COPY vector<NonPodStruct> ====================================================
@@ -993,13 +1329,40 @@ int main()
         cout << "Urho3D::Vector<NonPodStruct>::copy " << min_time << "s" << endl;
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
+        eastl::vector<NonPodStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.push_back(NonPodStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            eastl::vector<NonPodStruct> copy = vec;
+            ignore_this += copy.size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "eastl::vector<NonPodStruct>::copy " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
     cout << endl;
 
     // ==================================================== КОНЕЦ ====================================================
 
+    // Используем переменную, чтобы оптимизатор не выкинул её
     cout << "ignore this " << ignore_this << endl;
-    cout << "Press ENTER..." << endl;
-    cin.get();
+    
+    //cout << "Press ENTER..." << endl;
+    //cin.get();
 
     return 0;
 }
