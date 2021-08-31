@@ -422,7 +422,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i];
         }
 
@@ -460,7 +460,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < (int)vec.Size(); ++i)
+            for (unsigned i = 0; i < vec.Size(); ++i)
                 ignore_this += vec[i];
         }
 
@@ -498,7 +498,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < (int)vec.Size(); ++i)
+            for (unsigned i = 0; i < vec.Size(); ++i)
                 ignore_this += vec[i];
         }
 
@@ -536,7 +536,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (eastl_size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i];
         }
 
@@ -578,7 +578,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -616,7 +616,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < (int)vec.Size(); ++i)
+            for (unsigned i = 0; i < vec.Size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -654,7 +654,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < (int)vec.Size(); ++i)
+            for (unsigned i = 0; i < vec.Size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -692,7 +692,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (eastl_size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -734,7 +734,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -772,7 +772,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < (int)vec.Size(); ++i)
+            for (unsigned i = 0; i < vec.Size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -810,7 +810,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < (int)vec.Size(); ++i)
+            for (unsigned i = 0; i < vec.Size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -848,7 +848,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (eastl_size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i].a;
         }
 
@@ -890,7 +890,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i].a();
         }
 
@@ -928,7 +928,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < (int)vec.Size(); ++i)
+            for (unsigned i = 0; i < vec.Size(); ++i)
                 ignore_this += vec[i].a();
         }
 
@@ -966,7 +966,7 @@ int main()
 
         for (int r = 0; r < NUM_REPEATS; ++r)
         {
-            for (int i = 0; i < vec.size(); ++i)
+            for (eastl_size_t i = 0; i < vec.size(); ++i)
                 ignore_this += vec[i].a();
         }
 
