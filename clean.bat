@@ -9,7 +9,7 @@ rmdir /S /Q build_vector_vs64\CMakeFiles
 rmdir /S /Q build_vector_vs64\EASTL
 rmdir /S /Q build_vector_vs64\vector_benchmark.dir
 rmdir /S /Q build_vector_vs64\x64
-rmdir /S /Q build_vector_vs32\.vs
+rmdir /S /Q build_vector_vs64\.vs
 del build_vector_vs64\*.* /f /q
 
 rmdir /S /Q build_vector_mingw32_debug\CMakeFiles

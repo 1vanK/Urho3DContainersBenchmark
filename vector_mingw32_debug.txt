@@ -1,73 +1,89 @@
-std::vector<int>::push_back(i) 0.380089s
-Urho3D::PODVector<int>::Push(i) 0.309127s
-Urho3D::Vector<int>::Push(i) 0.590166s
-eastl::vector<int>::::push_back(i) 0.342471s
+std::vector<int>::push_back(i) 0.353112s
+Urho3D::PODVector<int>::Push(i) 0.258432s
+Urho3D::Vector<int>::Push(i) 0.519149s
+Urho3DNew::Vector<int>::Push(i) 0.258234s
+eastl::vector<int>::::push_back(i) 0.306978s
 
-std::vector<PODStruct>::push_back(PODStruct()) 0.745757s
-Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.612031s
-Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.898834s
-eastl::vector<PODStruct>::push_back(PODStruct()) 0.590372s
+std::vector<PODStruct>::push_back(PODStruct()) 0.907731s
+Urho3D::PODVector<PODStruct>::Push(PODStruct()) 0.456559s
+Urho3D::Vector<PODStruct>::Push(PODStruct()) 0.716079s
+Urho3DNew::Vector<PODStruct>::Push(PODStruct()) 0.640699s
+eastl::vector<PODStruct>::push_back(PODStruct()) 0.461443s
 
-std::vector<SLStruct>::push_back(SLStruct()) 1.4646s
-Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.663443s
-Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.987726s
-eastl::vector<SLStruct>::push_back(SLStruct()) 0.623712s
+std::vector<SLStruct>::push_back(SLStruct()) 1.69464s
+Urho3D::PODVector<SLStruct>::Push(SLStruct()) 0.488164s
+Urho3D::Vector<SLStruct>::Push(SLStruct()) 0.778341s
+Urho3DNew::Vector<SLStruct>::Push(SLStruct()) 0.769149s
+eastl::vector<SLStruct>::push_back(SLStruct()) 0.499718s
 
-std::vector<NonPodStruct>::push_back(NonPodStruct()) 1.27477s
-Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 1.20298s
-eastl::vector<NonPodStruct>::push_back(NonPodStruct()) 0.788446s
+std::vector<NonPodStruct>::push_back(NonPodStruct()) 1.48421s
+Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) 0.968604s
+Urho3DNew::Vector<NonPodStruct>::Push(NonPodStruct()) 0.965823s
+eastl::vector<NonPodStruct>::push_back(NonPodStruct()) 0.652911s
 
-std::vector<int>::[i] 0.829978s
-std::vector<int>::iterator 1.86121s
-Urho3D::PODVector<int>::[i] 1.31318s
-Urho3D::PODVector<int>::iterator 1.13978s
-Urho3D::Vector<int>::[i] 1.31568s
-Urho3D::Vector<int>::iterator 1.14573s
-eastl::vector<int>::[i] 0.832386s
-eastl::vector<int>::iterator 0.438214s
+std::vector<int>::[i] 0.838724s
+std::vector<int>::iterator 1.85845s
+Urho3D::PODVector<int>::[i] 1.34014s
+Urho3D::PODVector<int>::iterator 1.13593s
+Urho3D::Vector<int>::[i] 1.3398s
+Urho3D::Vector<int>::iterator 1.13979s
+Urho3DNew::Vector<int>::[i] 1.34993s
+Urho3DNew::Vector<int>::iterator 1.13728s
+eastl::vector<int>::[i] 0.836444s
+eastl::vector<int>::iterator 0.437365s
 
-std::vector<PODStruct>::[i] 0.900317s
-std::vector<PODStruct>::iterator 1.81145s
-Urho3D::PODVector<PODStruct>::[i] 1.37462s
-Urho3D::PODVector<PODStruct>::iterator 1.10637s
-Urho3D::Vector<PODStruct>::[i] 1.3789s
-Urho3D::Vector<PODStruct>::iterator 1.12608s
-eastl::vector<PODStruct>::[i] 0.90035s
-eastl::vector<PODStruct>::iterator 0.482127s
+std::vector<PODStruct>::[i] 0.907636s
+std::vector<PODStruct>::iterator 1.81191s
+Urho3D::PODVector<PODStruct>::[i] 1.38959s
+Urho3D::PODVector<PODStruct>::iterator 1.09969s
+Urho3D::Vector<PODStruct>::[i] 1.38648s
+Urho3D::Vector<PODStruct>::iterator 1.11128s
+Urho3DNew::Vector<PODStruct>::[i] 1.39042s
+Urho3DNew::Vector<PODStruct>::iterator 1.09563s
+eastl::vector<PODStruct>::[i] 0.914022s
+eastl::vector<PODStruct>::iterator 0.473094s
 
-std::vector<SLStruct>::[i] 0.901486s
-std::vector<SLStruct>::iterator 1.82604s
-Urho3D::PODVector<SLStruct>::[i] 1.37497s
-Urho3D::PODVector<SLStruct>::iterator 1.10586s
-Urho3D::Vector<SLStruct>::[i] 1.3785s
-Urho3D::Vector<SLStruct>::iterator 1.10527s
-eastl::vector<SLStruct>::[i] 0.900499s
-eastl::vector<SLStruct>::iterator 0.481986s
+std::vector<SLStruct>::[i] 1.01824s
+std::vector<SLStruct>::iterator 1.78931s
+Urho3D::PODVector<SLStruct>::[i] 1.38738s
+Urho3D::PODVector<SLStruct>::iterator 1.09204s
+Urho3D::Vector<SLStruct>::[i] 1.38713s
+Urho3D::Vector<SLStruct>::iterator 1.10168s
+Urho3DNew::Vector<SLStruct>::[i] 1.40878s
+Urho3DNew::Vector<SLStruct>::iterator 1.10533s
+eastl::vector<SLStruct>::[i] 0.927348s
+eastl::vector<SLStruct>::iterator 0.481498s
 
-std::vector<NonPodStruct>::[i] 1.14063s
-std::vector<NonPodStruct>::iterator 2.06294s
-Urho3D::Vector<NonPodStruct>::[i] 1.63367s
-Urho3D::Vector<NonPodStruct>::iterator 1.41507s
-eastl::vector<NonPodStruct>::[i] 1.13899s
-eastl::vector<NonPodStruct>::iterator 0.527358s
+std::vector<NonPodStruct>::[i] 1.14859s
+std::vector<NonPodStruct>::iterator 2.06788s
+Urho3D::Vector<NonPodStruct>::[i] 1.63168s
+Urho3D::Vector<NonPodStruct>::iterator 1.38884s
+Urho3DNew::Vector<NonPodStruct>::[i] 1.64456s
+Urho3DNew::Vector<NonPodStruct>::iterator 1.39016s
+eastl::vector<NonPodStruct>::[i] 1.15282s
+eastl::vector<NonPodStruct>::iterator 0.548706s
 
-std::vector<int>::copy 0.456089s
-Urho3D::PODVector<int>::copy 0.450209s
-Urho3D::Vector<int>::copy 2.37335s
-eastl::vector<int>::copy 0.455443s
+std::vector<int>::copy 0.307283s
+Urho3D::PODVector<int>::copy 0.350747s
+Urho3D::Vector<int>::copy 2.18491s
+Urho3DNew::Vector<int>::copy 0.358045s
+eastl::vector<int>::copy 0.317761s
 
-std::vector<PODStruct>::copy 1.34663s
-Urho3D::PODVector<PODStruct>::copy 1.34393s
-Urho3D::Vector<PODStruct>::copy 3.33521s
-eastl::vector<PODStruct>::copy 1.34627s
+std::vector<PODStruct>::copy 0.961834s
+Urho3D::PODVector<PODStruct>::copy 0.98442s
+Urho3D::Vector<PODStruct>::copy 2.75157s
+Urho3DNew::Vector<PODStruct>::copy 0.974604s
+eastl::vector<PODStruct>::copy 0.991438s
 
-std::vector<SLStruct>::copy 4.35199s
-Urho3D::PODVector<SLStruct>::copy 1.33847s
-Urho3D::Vector<SLStruct>::copy 3.38798s
-eastl::vector<SLStruct>::copy 1.33758s
+std::vector<SLStruct>::copy 3.76691s
+Urho3D::PODVector<SLStruct>::copy 0.989634s
+Urho3D::Vector<SLStruct>::copy 2.73537s
+Urho3DNew::Vector<SLStruct>::copy 2.96922s
+eastl::vector<SLStruct>::copy 0.992107s
 
-std::vector<NonPodStruct>::copy 5.81299s
-Urho3D::Vector<NonPodStruct>::copy 4.1667s
-eastl::vector<NonPodStruct>::copy 1.92051s
+std::vector<NonPodStruct>::copy 5.21951s
+Urho3D::Vector<NonPodStruct>::copy 3.61919s
+Urho3DNew::Vector<NonPodStruct>::copy 3.57019s
+eastl::vector<NonPodStruct>::copy 1.50943s
 
-ignore this -2108050432
+ignore this 1759904256

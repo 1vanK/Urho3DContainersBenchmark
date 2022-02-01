@@ -3,6 +3,7 @@
 #include <limits>
 #include <vector>
 #include "Urho3D/Container/Vector.h"
+#include "Urho3D/Container/VectorNew.h"
 #include <EASTL/vector.h>
 
 using namespace std;
@@ -154,6 +155,27 @@ int main()
     cout << "Urho3D::Vector<int>::Push(i) " << min_time << "s" << endl;
 
     // --------------------------------------------------------------------------------------------------------------
+
+
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        Urho3DNew::Vector<int> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(i);
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.Size();
+    }
+
+    cout << "Urho3DNew::Vector<int>::Push(i) " << min_time << "s" << endl;
+
+    // --------------------------------------------------------------------------------------------------------------
     
     min_time = numeric_limits<float>::max();
 
@@ -236,6 +258,26 @@ int main()
     }
 
     cout << "Urho3D::Vector<PODStruct>::Push(PODStruct()) " << min_time << "s" << endl;
+
+    // --------------------------------------------------------------------------------------------------------------
+
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        Urho3DNew::Vector<PODStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(PODStruct());
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.Size();
+    }
+
+    cout << "Urho3DNew::Vector<PODStruct>::Push(PODStruct()) " << min_time << "s" << endl;
 
     // --------------------------------------------------------------------------------------------------------------
     
@@ -322,6 +364,26 @@ int main()
     cout << "Urho3D::Vector<SLStruct>::Push(SLStruct()) " << min_time << "s" << endl;
 
     // --------------------------------------------------------------------------------------------------------------
+
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        Urho3DNew::Vector<SLStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(SLStruct());
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.Size();
+    }
+
+    cout << "Urho3DNew::Vector<SLStruct>::Push(SLStruct()) " << min_time << "s" << endl;
+
+    // --------------------------------------------------------------------------------------------------------------
     
     min_time = numeric_limits<float>::max();
 
@@ -384,6 +446,27 @@ int main()
     }
 
     cout << "Urho3D::Vector<NonPodStruct>::Push(NonPodStruct()) " << min_time << "s" << endl;
+
+    // --------------------------------------------------------------------------------------------------------------
+
+
+    min_time = numeric_limits<float>::max();
+
+    for (int r = 0; r < NUM_REPEATS; ++r)
+    {
+        start = steady_clock::now();
+
+        Urho3DNew::Vector<NonPodStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(NonPodStruct());
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        ignore_this += (int)vec.Size();
+    }
+
+    cout << "Urho3DNew::Vector<NonPodStruct>::Push(NonPodStruct()) " << min_time << "s" << endl;
 
     // --------------------------------------------------------------------------------------------------------------
     
@@ -521,6 +604,44 @@ int main()
         min_time = min(min_time, delta.count());
 
         cout << "Urho3D::Vector<int>::iterator " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
+    {
+        Urho3DNew::Vector<int> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(i);
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (unsigned i = 0; i < vec.Size(); ++i)
+                ignore_this += vec[i];
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<int>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (int val : vec)
+                ignore_this += val;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<int>::iterator " << min_time << "s" << endl;
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -677,6 +798,44 @@ int main()
         min_time = min(min_time, delta.count());
 
         cout << "Urho3D::Vector<PODStruct>::iterator " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
+    {
+        Urho3DNew::Vector<PODStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(PODStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (unsigned i = 0; i < vec.Size(); ++i)
+                ignore_this += vec[i].a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<PODStruct>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (PODStruct& val : vec)
+                ignore_this += val.a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<PODStruct>::iterator " << min_time << "s" << endl;
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -838,6 +997,43 @@ int main()
     // --------------------------------------------------------------------------------------------------------------
     
     {
+        Urho3DNew::Vector<SLStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(SLStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (unsigned i = 0; i < vec.Size(); ++i)
+                ignore_this += vec[i].a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<SLStruct>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (SLStruct& val : vec)
+                ignore_this += val.a;
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<SLStruct>::iterator " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+    {
         eastl::vector<SLStruct> vec;
         for (int i = 0; i < NUM_ELEMENTS; ++i)
             vec.push_back(SLStruct());
@@ -954,6 +1150,44 @@ int main()
     }
 
     // --------------------------------------------------------------------------------------------------------------
+
+    {
+        Urho3DNew::Vector<NonPodStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(NonPodStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (unsigned i = 0; i < vec.Size(); ++i)
+                ignore_this += vec[i].a();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<NonPodStruct>::[i] " << min_time << "s" << endl;
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            for (NonPodStruct& val : vec)
+                ignore_this += val.a();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<NonPodStruct>::iterator " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
     
     {
         eastl::vector<NonPodStruct> vec;
@@ -1067,6 +1301,29 @@ int main()
     // --------------------------------------------------------------------------------------------------------------
     
     {
+        Urho3DNew::Vector<int> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(i);
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            Urho3DNew::Vector<int> copy = vec;
+            ignore_this += copy.Size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<int>::copy " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+    
+    {
         eastl::vector<int> vec;
         for (int i = 0; i < NUM_ELEMENTS; ++i)
             vec.push_back(i);
@@ -1158,6 +1415,29 @@ int main()
         min_time = min(min_time, delta.count());
 
         cout << "Urho3D::Vector<PODStruct>::copy " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
+    {
+        Urho3DNew::Vector<PODStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(PODStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            Urho3DNew::Vector<PODStruct> copy = vec;
+            ignore_this += copy.Size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<PODStruct>::copy " << min_time << "s" << endl;
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -1257,6 +1537,29 @@ int main()
     }
 
     // --------------------------------------------------------------------------------------------------------------
+
+    {
+        Urho3DNew::Vector<SLStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(SLStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            Urho3DNew::Vector<SLStruct> copy = vec;
+            ignore_this += copy.Size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<SLStruct>::copy " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
     
     {
         eastl::vector<SLStruct> vec;
@@ -1327,6 +1630,29 @@ int main()
         min_time = min(min_time, delta.count());
 
         cout << "Urho3D::Vector<NonPodStruct>::copy " << min_time << "s" << endl;
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
+    {
+        Urho3DNew::Vector<NonPodStruct> vec;
+        for (int i = 0; i < NUM_ELEMENTS; ++i)
+            vec.Push(NonPodStruct());
+
+        min_time = numeric_limits<float>::max();
+
+        start = steady_clock::now();
+
+        for (int r = 0; r < NUM_REPEATS; ++r)
+        {
+            Urho3DNew::Vector<NonPodStruct> copy = vec;
+            ignore_this += copy.Size();
+        }
+
+        delta = steady_clock::now() - start;
+        min_time = min(min_time, delta.count());
+
+        cout << "Urho3DNew::Vector<NonPodStruct>::copy " << min_time << "s" << endl;
     }
 
     // --------------------------------------------------------------------------------------------------------------
